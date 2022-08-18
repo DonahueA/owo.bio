@@ -2,25 +2,130 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background-color:   #0e1115;
+  color:white;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+h2 {
+  color: white;
+}
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.ValIcon{
+  border-radius: 10px;
+}
+.NameContainer{
+  color: #e2e4e9;
+  margin-bottom: 16px;
+}
+
+
+.ValContainer{
+  min-height: 128px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width:auto;
+  min-height:56px;
+  background-color: #181b20;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 1ch;
+}
+
+.ValProfileInfo{
+  display: flex;
+}
+.ValName{
+  color: #e2e4e9;
+  font-size: 26px;
+  font-weight: bold;
+}
+.ValTag{
+  color: #b2b4b9;
+}
+
+.LinkContainer{
+  width:100%;
+  
+  background-color: #181b20;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 1ch;
+}
+
+.LinkItem{
+  display: flex;
+  justify-content: center;
+  min-height:56px;
+  width: 100%;
+  margin-top: 2ch;
+  font-size: 1.2em;
+  color:#fff;
+  text-decoration: none;
+  align-items: center;
+
+}
+
+.NameContainer{
+  text-align: center;
+
+}
+.LinkCollection{
+  width: 100%;
+  margin:auto;
+}
+
+
+.registerError{
+  color: #ef3b7d;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+label{
+  color: white
+}
+.userSignup{
+  display: flex;
+}
+#userSignupLabel {
+  color: black;
+  box-sizing: border-box;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+
+  background-color: white;
+  border: 1px solid white;
+  padding: 10px 0px 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.userSignup input{
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  padding-left: 0px;
+}
+input:focus{
+  outline:none;
+}
+input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
 }
