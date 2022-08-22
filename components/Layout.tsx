@@ -2,7 +2,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
       <>
         <header>
-          <title>owo</title>
+          <title>getmylink</title>
         </header>
         <style jsx global>{`
           *,
