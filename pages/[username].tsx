@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import {ListingInfo} from "../components/Interfaces";
 
 import Layout from "../components/Layout";
@@ -20,7 +22,7 @@ const linkpage = (pInfo : PageInfo) => {
 
     
     if(pInfo.found == false){
-        return <Layout><h2 style={{marginTop:"200px", marginBottom:"100px"}}>The page you were looking for doesn't exist.</h2><h2> <a href="./register">Make this page yours.</a></h2></Layout>
+        return <Layout><h2 style={{marginTop:"200px", marginBottom:"100px"}}>The page you were looking for doesn&apos;t exist.</h2><h2> <Link href="./register">Make this page yours.</Link></h2></Layout>
     }
     return <Layout>
       {LinkProfile(pInfo.name)}

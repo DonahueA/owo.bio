@@ -41,7 +41,7 @@ export default withIronSessionApiRoute(async function register(req: NextApiReque
             // hash and store to DB
 
             user.hash = bcrypt.hash(password, 10, (err: any, hash: any)=>{
-                db.collection("userdata").insertOne({name: user.username, email: user.email, hash: hash, links: []})
+                db.collection("userdata").insertOne({name: user.username, email: user.email, hash: hash, links: [{label: "First link!", url:'google.com', enabled: false}]})
             })    
 
             //Should login

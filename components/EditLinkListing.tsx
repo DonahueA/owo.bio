@@ -1,7 +1,7 @@
 
 import { ChangeEventHandler, FormEvent } from "react";
 import { LinkListingInfo } from "./Interfaces";
-
+import Image from 'next/image'
 import EditableLabel from "./EditableLabel";
 export default function EditLinkListing(info: LinkListingInfo, handleChange : ChangeEventHandler<HTMLInputElement>, deleteSelf : ()=>void ) {
 
@@ -13,7 +13,7 @@ export default function EditLinkListing(info: LinkListingInfo, handleChange : Ch
         </div>
         <div className="EditLinkOptionsContainer">
             <input type="checkbox" className="switch_1" name="enabled" checked={info.enabled} onChange={handleChange} />
-            <img  onClick={deleteSelf} src="./icons8-trash-25-white.png" />
+            <Image  width={25} height={25} onClick={deleteSelf} src="/icons8-trash-25-white.png" />
         </div></div>
     );
 }

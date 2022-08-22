@@ -7,7 +7,7 @@ type Inputs = {
   username: string,
   password: string,
 };
-function login() {
+function Login() {
   const { register,setError, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
 
 
@@ -76,4 +76,4 @@ export const getServerSideProps = withIronSessionSsr(
 );
 
 
-export default login
+export default Login

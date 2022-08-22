@@ -2,6 +2,7 @@
 import {LinkListingInfo} from "./Interfaces";
 import EditLinkListing from "./EditLinkListing";
 import React, { ChangeEvent, FormEvent, FormEventHandler } from "react";
+import { assert } from "console";
 
 export default class EditLinkListingCollection extends React.Component<{links: Array<LinkListingInfo>}, {links: Array<LinkListingInfo>}> {
 
@@ -18,8 +19,18 @@ export default class EditLinkListingCollection extends React.Component<{links: A
         let handleChange = (e: ChangeEvent<HTMLInputElement>)=>{
             let current_links = this.state.links;
             const target = e.target;
-            const value = target.type === 'checkbox' ? target.checked : target.value;
-            current_links[i][target.name] = value;
+
+            switch(target.name){
+                case "url":
+                    current_links[i].url= target.value;
+                    break;
+                case "enabled":
+                    current_links[i].enabled = target.checked;
+                    break;
+                case "label":
+                    current_links[i].label = target.value;
+            }
+
             this.setState({links: current_links});
         }
         handleChange.bind(this);
@@ -66,7 +77,7 @@ export default class EditLinkListingCollection extends React.Component<{links: A
 
                 <div className="EditLinkCollectionActions">
                 <button id="add" type="button" onClick={this.addLink}>+</button>
-                <button id="save" type="submit" value="Save" onClick={this.postData}>Save</button>
+                <button id="save" type="submit" value="Save">Save</button>
                 </div>
                 </form>
             </div>
