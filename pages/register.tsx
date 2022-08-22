@@ -22,7 +22,7 @@ function App() {
     };
 
 
-    fetch("http://localhost:3000/api/users/register", requestOptions)
+    fetch("/api/users/register", requestOptions)
         .then(res => {
             if(res.status == 200){
                 //Fix (should not have to wait)

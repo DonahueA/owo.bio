@@ -51,7 +51,7 @@ export default class EditLinkListingCollection extends React.Component<{links: A
         };
 
         //Should notify user for success/failure
-        fetch("http://localhost:3000/api/users/update", requestOptions)
+        fetch("/api/users/update", requestOptions)
         .then(res => {
             if(res.status == 200){
                 console.log("Success!")

@@ -20,7 +20,7 @@ function Login() {
     };
 
 
-    fetch("http://localhost:3000/api/users/login", requestOptions)
+    fetch("/api/users/login", requestOptions)
         .then(res => {
             if(res.status == 200){
               window.location.replace("/edit");
