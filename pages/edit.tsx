@@ -17,7 +17,7 @@ const linkpage = (pInfo : PageInfo) => {
     return <Layout>
       {LinkProfile(pInfo.name)}
       <EditLinkListingCollection links={pInfo.links} />
-      <button onClick={()=>{fetch("/api/users/logout"), {method: "POST"};window.location.replace("/");}}>Logout</button>
+      <button onClick={()=>{fetch("./api/users/logout"), {method: "POST"};window.location.replace("/");}}>Logout</button>
       </Layout>
   
 }

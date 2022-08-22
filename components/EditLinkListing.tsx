@@ -6,13 +6,14 @@ import EditableLabel from "./EditableLabel";
 export default function EditLinkListing(info: LinkListingInfo, handleChange : ChangeEventHandler<HTMLInputElement>, deleteSelf : ()=>void ) {
 
     return (
-    <div className="LinkContainer">
-        <div>
+    <div className="EditLinkContainer">
+        <div className="EditTextInputs">
             {EditableLabel("label", info.label, handleChange)}
             {EditableLabel("url", info.url, handleChange)}
-
-            <input type="checkbox" id="enabled" name="enabled" checked={info.enabled} onChange={handleChange} />
-            <button type="button" onClick={deleteSelf}>Delete</button>
+        </div>
+        <div className="EditLinkOptionsContainer">
+            <input type="checkbox" className="switch_1" name="enabled" checked={info.enabled} onChange={handleChange} />
+            <img  onClick={deleteSelf} src="./icons8-trash-25-white.png" />
         </div></div>
     );
 }

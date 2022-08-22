@@ -2,8 +2,13 @@ import { withIronSessionApiRoute } from "iron-session/next";
 
 export default withIronSessionApiRoute(
   function logoutRoute(req, res) {
+    if(req.method === 'POST'){
     req.session.destroy();
     res.send({ ok: true });
+  }else{
+    res.send({ok: false});
+  }
+
   },
   {
     cookieName: "myapp_cookiename",

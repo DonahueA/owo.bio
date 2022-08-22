@@ -63,9 +63,11 @@ export default class EditLinkListingCollection extends React.Component<{links: A
             <div className="LinkCollection">
                 <form onSubmit={this.handleSubmit}>
                 {listings}
-                <button type="button" onClick={this.addLink}>Add new link</button>
-                <button type="submit" value="Save" onClick={this.postData}>Save</button>
-                
+
+                <div className="EditLinkCollectionActions">
+                <button id="add" type="button" onClick={this.addLink}>+</button>
+                <button id="save" type="submit" value="Save" onClick={this.postData}>Save</button>
+                </div>
                 </form>
             </div>
             );

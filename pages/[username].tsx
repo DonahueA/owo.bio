@@ -20,7 +20,7 @@ const linkpage = (pInfo : PageInfo) => {
 
     
     if(pInfo.found == false){
-        return <Layout><h2>Link not found! <a href="./register">Make it yours.</a></h2></Layout>
+        return <Layout><h2 style={{marginTop:"200px", marginBottom:"100px"}}>The page you were looking for doesn't exist.</h2><h2> <a href="./register">Make this page yours.</a></h2></Layout>
     }
     return <Layout>
       {LinkProfile(pInfo.name)}
@@ -41,7 +41,7 @@ export async function getServerSideProps({params}) {
     const data = await db.collection("userdata").find({name: params.username}).toArray();
     if(data.length == 1){
         return {
-            props: {name: params.username, found: true, listingData:data[0].links}, // will be passed to the page component as props
+            props: {name: params.username, found: true, listingData:data[0].links.filter(x=>x.enabled)}, // will be passed to the page component as props
           }
     }
     return {
