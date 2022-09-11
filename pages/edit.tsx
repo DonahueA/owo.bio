@@ -1,14 +1,16 @@
-import {LinkListingInfo, ListingInfo} from "../components/Interfaces";
+import {ListingInfo} from "../components/Interfaces";
 
 import Layout from "../components/Layout";
 import EditLinkListingCollection from '../components/EditLinkListingCollection';
 import LinkProfile from '../components/LinkProfile';
 import { withIronSessionSsr } from "iron-session/next";
 
+import { sessionOptions } from "../lib/session";
+
 import {connectToDatabase} from "../util/mongodb"
 interface PageInfo {
     name: string;
-    links: [LinkListingInfo]
+    links: [ListingInfo]
 }
 
 
@@ -32,7 +34,7 @@ export const getServerSideProps = withIronSessionSsr(async function getServerSid
         res.setHeader('location', '/login')
         res.statusCode = 302
         res.end()
-        return {props: {username: ""}}
+        return {props: {name: ""}}
     }
 
     //Fetch from DB otherwise
@@ -47,17 +49,10 @@ export const getServerSideProps = withIronSessionSsr(async function getServerSid
           }
     }else{
         //Should never get here
-        console.log("BIG ERROR");
+        return {props: {name: ""}}
     }
 
-    },{
-    cookieName: "myapp_cookiename",
-    password: "complex_password_at_least_32_characters_long",
-    // secure: true should be used in production (HTTPS) but can't be used in development (HTTP)
-    cookieOptions: {
-      secure: process.env.NODE_ENV === "production",
-    },
-  },
+    },sessionOptions,
 )
 
 

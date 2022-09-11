@@ -1,8 +1,9 @@
 import { withIronSessionApiRoute } from "iron-session/next";
 import { connectToDatabase } from "../../../util/mongodb";
+import { sessionOptions } from "../../../lib/session";
+
 const bcrypt = require("bcrypt");
 
-const usersRepo = [{username : "xonas", password: "password"}]; 
 
 export default withIronSessionApiRoute(
     async function loginRoute(req, res) {
@@ -26,11 +27,12 @@ export default withIronSessionApiRoute(
         
 
         if (await bcrypt.compare(password, data[0].hash)){
-            res.status(200)
+            
             req.session.user = {
                 user: username,
               };
             await req.session.save();
+            res.status(200)
             res.json({ok: true})
 
         }else{
@@ -41,12 +43,5 @@ export default withIronSessionApiRoute(
       }
       
     },
-    {
-      cookieName: "myapp_cookiename",
-      password: "complex_password_at_least_32_characters_long",
-      // secure: true should be used in production (HTTPS) but can't be used in development (HTTP)
-      cookieOptions: {
-        secure: process.env.NODE_ENV === "production",
-      },
-    },
+    sessionOptions,
   );

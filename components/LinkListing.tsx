@@ -1,6 +1,6 @@
 
-import { LinkListingInfo } from "./Interfaces";
-export default function LinkListing(info: LinkListingInfo) {
+import { ListingInfo } from "./Interfaces";
+export default function LinkListing(info: ListingInfo) {
     
     if(!info.url.match(/https?:\/\/.+/i)){
         info.url = "https://" + info.url;

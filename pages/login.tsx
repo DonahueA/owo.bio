@@ -2,6 +2,7 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { withIronSessionSsr } from "iron-session/next";
 import Layout from "../components/Layout";
+import { sessionOptions } from "../lib/session";
 
 type Inputs = {
   username: string,
@@ -53,9 +54,9 @@ function Login() {
 export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req, res }) : Promise<{props: {username:string}}> {
 
-    const user = req.session.user;
+
     
-    if (user !== undefined) {
+    if (req.session.user) {
       res.setHeader('location', '/edit')
       res.statusCode = 302
       res.end()
@@ -65,14 +66,7 @@ export const getServerSideProps = withIronSessionSsr(
       props: {username: "",}
     };
   },
-  {
-    cookieName: "myapp_cookiename",
-    password: "complex_password_at_least_32_characters_long",
-    // secure: true should be used in production (HTTPS) but can't be used in development (HTTP)
-    cookieOptions: {
-      secure: process.env.NODE_ENV === "production",
-    },
-  },
+  sessionOptions,
 );
 
 
