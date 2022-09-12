@@ -48,7 +48,7 @@ function App() {
       {errors.password && <div className="registerError">Invalid password</div>}
       
       <div className="userSignup">
-        <label id="userSignupLabel">getmyl.ink/</label>
+        <label id="userSignupLabel">owo.bio/</label>
       <input className="usernameInput" {...register("username", {pattern: /^[a-zA-Z0-9\-\_]+$/, required: true})} />
       </div>
       {errors.username?.type == "pattern" && <div className="registerError">Invalid username</div>}
