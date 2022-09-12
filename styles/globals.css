@@ -49,7 +49,7 @@ input[type="checkbox"].switch_1{
   }
   
   input[type="checkbox"].switch_1:checked{
-	background: #0eff7a;
+	background: #dddddd;
   }
   
   input[type="checkbox"].switch_1:after{
@@ -78,12 +78,9 @@ input[type="checkbox"].switch_1{
 }
 form{
   margin: auto;
-  max-width: 460px;
   background-color: #f9bab3;
-  padding: 30px 15px 15px 10px;
   border-radius: 10px;
   align-items: center;
-  padding: 20px;
 }
 
 .LinkContainer{
@@ -98,6 +95,12 @@ form{
 .EditTextInputs{
   width: 90%;
 }
+
+.EditableLabel{
+  background-color: inherit;
+  border: 0px;
+}
+
 .EditLinkOptionsContainer{
   display: flex;
   flex-direction: column;
@@ -121,15 +124,34 @@ form{
   padding: 0px 20px 0px 20px;
 }
 
+
 #add{
-  height: 32px;
-  width: 64px;
-  border-radius: 10px;
-
+  font-size: x-large;
+  border: 0;
+   border-radius: 0px;
+   background-color: #f4b9b4;
+   width: 260px;
+   padding-top: 0.5ch;
+   padding-bottom: 0.5ch;
+   border-radius: 4rem;
+   color: inherit;
 }
-
 #save{
-  border-radius: 10px;
+ font-size: x-large;
+border: 0;
+ border-radius: 0px;
+ background-color: #f4b9b4;
+ width: 260px;
+ padding-top: 0.5ch;
+ padding-bottom: 0.5ch;
+ border-radius: 4rem;
+ color: inherit;
+}
+#add:hover{
+  -webkit-filter: brightness(90%);
+}
+#save:hover{
+  -webkit-filter: brightness(90%);
 }
 
 

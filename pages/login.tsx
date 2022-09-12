@@ -38,14 +38,15 @@ function Login() {
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <Layout>
-    <form onSubmit={handleSubmit(onSubmit)}>
+      <h2 style={{marginTop: "200px"}}>welcome back owo</h2>
+    <form style={{background: "inherit", maxWidth: "460px"}}onSubmit={handleSubmit(onSubmit)}>
       <input placeholder="username" {...register("username")} />
       <input placeholder="password" type={"password"}{...register("password", { required: true })} />
 
       {errors.username && <div className="registerError">{errors.username?.message}</div>}
       
 
-      <input className="submit" type="submit" value="login" />
+      <input style={{background: "white"}} className="submit" type="submit" value="login" />
     </form>
     </Layout>
   );

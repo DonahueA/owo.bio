@@ -39,7 +39,8 @@ function App() {
 
   return (
     <Layout>
-    <form onSubmit={handleSubmit(onSubmit)}>
+      <h2 style={{marginTop: "200px"}}>register owo</h2>
+    <form style={{backgroundColor: "inherit", maxWidth: "460px"}} onSubmit={handleSubmit(onSubmit)}>
       <input placeholder="email" {...register("email", {pattern: /\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}/ , required: true })} />
       {errors.email?.type =="pattern" && <div className="registerError">Invalid email</div>}
       {errors.email?.type === "custom" && <div className="registerError">{errors.email?.message}</div>}
@@ -54,7 +55,7 @@ function App() {
       {errors.username?.type == "pattern" && <div className="registerError">Invalid username</div>}
       {errors.username?.type === "custom" && <div className="registerError">{errors.username?.message}</div>}
             
-      <input type="submit" className="submit" value="Sign Up"/>
+      <input style={{backgroundColor: "white"}} type="submit" className="submit" value="Sign Up"/>
     </form>
     </Layout>
   );

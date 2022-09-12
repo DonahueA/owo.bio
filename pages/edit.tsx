@@ -19,12 +19,20 @@ interface PageInfo {
 const linkpage = (pInfo : PageInfo) => {
     
     
-    return <Layout>
+    return <><style global jsx>{`
+            
+    h2 {
+        margin-top: 8px;
+        margin-bottom: 30px;
+        font-weight: 600;
+    }`}</style>
+        <Layout>
       <PhotoSelect name={pInfo.name} profile_url={pInfo.profile_url} ></PhotoSelect>
       <EditLinkListingCollection links={pInfo.links} />
-      <button onClick={()=>{fetch("./api/users/logout"), {method: "POST"};window.location.replace("/");}}>Logout</button>
+      <div style={{padding: "20px", textAlign: "left"}}><button style={{background: "none", border: "0px"}} onClick={()=>{fetch("./api/users/logout"), {method: "POST"};window.location.replace("/");}}>Logout</button>
+      </div>
       </Layout>
-  
+      </>
 }
   
 
