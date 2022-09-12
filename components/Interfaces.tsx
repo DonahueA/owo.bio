@@ -4,3 +4,11 @@ export interface ListingInfo{
     label: string;
 }
 
+
+export interface Theme{
+    textColor: string;
+    bgColor: string;
+    LinkbgColor: string;
+    hoverColor?: string;
+    borderColor?: string;
+}

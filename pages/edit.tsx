@@ -1,5 +1,6 @@
 import {ListingInfo} from "../components/Interfaces";
 
+import PhotoSelect from "../components/EditLinkProfile";
 import Layout from "../components/Layout";
 import EditLinkListingCollection from '../components/EditLinkListingCollection';
 import LinkProfile from '../components/LinkProfile';
@@ -11,13 +12,15 @@ import {connectToDatabase} from "../util/mongodb"
 interface PageInfo {
     name: string;
     links: [ListingInfo]
+    profile_url?: string;
 }
 
 
 const linkpage = (pInfo : PageInfo) => {
     
+    
     return <Layout>
-      {LinkProfile(pInfo.name)}
+      <PhotoSelect name={pInfo.name} profile_url={pInfo.profile_url} ></PhotoSelect>
       <EditLinkListingCollection links={pInfo.links} />
       <button onClick={()=>{fetch("./api/users/logout"), {method: "POST"};window.location.replace("/");}}>Logout</button>
       </Layout>
@@ -26,7 +29,7 @@ const linkpage = (pInfo : PageInfo) => {
   
 
 
-export const getServerSideProps = withIronSessionSsr(async function getServerSideProps({req, res}) {
+export const getServerSideProps = withIronSessionSsr(async function getServerSideProps({req, res}: any) : Promise<any> {
     //Fetch from DB data
 
     //Redirect if not logged in
@@ -45,7 +48,7 @@ export const getServerSideProps = withIronSessionSsr(async function getServerSid
     if(data.length == 1){
     
         return {
-            props: {name:  req.session.user.user, links:data[0].links}
+            props: {name:  req.session.user.user, links:data[0].links, profile_url:  data[0].profile_url ? "/uploads/" + data[0].profile_url : null}
           }
     }else{
         //Should never get here

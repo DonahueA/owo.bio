@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             text-align:center;
           }
           .container {
-            max-width: 40%;
+            max-width: 36%;
             margin: 1.5rem auto;
             padding-left: 1rem;
             padding-right: 1rem;

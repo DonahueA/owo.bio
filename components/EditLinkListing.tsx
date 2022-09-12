@@ -1,9 +1,9 @@
 
 import { ChangeEventHandler, FormEvent } from "react";
-import { LinkListingInfo } from "./Interfaces";
+import { ListingInfo } from "./Interfaces";
 import Image from 'next/image'
 import EditableLabel from "./EditableLabel";
-export default function EditLinkListing(info: LinkListingInfo, handleChange : ChangeEventHandler<HTMLInputElement>, deleteSelf : ()=>void ) {
+export default function EditLinkListing(info: ListingInfo, handleChange : ChangeEventHandler<HTMLInputElement>, deleteSelf : ()=>void ) {
 
     return (
     <div className="EditLinkContainer">
