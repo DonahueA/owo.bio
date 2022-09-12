@@ -5,6 +5,8 @@ import { connectToDatabase } from "../../../util/mongodb";
 import {createWriteStream, writeFile} from 'node:fs';
 import { PassThrough } from "node:stream";
 
+import { uploadStream } from "../../../util/spaces";
+
 const formidable = require('formidable');
 const sharp = require('sharp');
 const { v4: uuidv4 } = require('uuid');
@@ -15,7 +17,8 @@ const { v4: uuidv4 } = require('uuid');
 function streamTransform(file: { newFilename: string; }){
 
     const firstStream = new PassThrough();
-    const lastStream = createWriteStream("./public/uploads/" + file.newFilename);
+    const lastStream = uploadStream(file);
+    //const lastStream = createWriteStream("./public/uploads/" + file.newFilename);
     var transformer = sharp().resize({width: 100, height: 100}).jpeg({quality: 100});
     firstStream.pipe(transformer).pipe(lastStream);
     return firstStream;
@@ -32,7 +35,7 @@ export default withIronSessionApiRoute(
         if(!req.session.user || !req.session.user.user){
             res.send(403)
         }
-        var form = new formidable.IncomingForm({uploadDir: "./uploads", filename: createFilename, fileWriteStreamHandler : streamTransform});
+        var form = new formidable.IncomingForm({ filename: createFilename, fileWriteStreamHandler : streamTransform});
         
 
         

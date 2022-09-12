@@ -11,7 +11,7 @@ export default class PhotoSelect extends React.Component<{name: string, profile_
         if(this.props.profile_url){
             this.state = { profile_url: this.props.profile_url };
         }else{
-            this.state = { profile_url: "/default.webp" };
+            this.state = { profile_url: "https://owo.sfo3.digitaloceanspaces.com/profile-images/default.webp" };
         }
         
         this.gotNewImage = this.gotNewImage.bind(this);

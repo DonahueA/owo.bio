@@ -48,7 +48,7 @@ export const getServerSideProps = withIronSessionSsr(async function getServerSid
     if(data.length == 1){
     
         return {
-            props: {name:  req.session.user.user, links:data[0].links, profile_url:  data[0].profile_url ? "/uploads/" + data[0].profile_url : null}
+            props: {name:  req.session.user.user, links:data[0].links, profile_url:  data[0].profile_url ? "https://owo.sfo3.digitaloceanspaces.com/profile-images/" + data[0].profile_url: null}
           }
     }else{
         //Should never get here

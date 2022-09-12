@@ -88,7 +88,7 @@ export async function getServerSideProps({params} : any) {
     const data = await db.collection("userdata").find({name: params.username}).toArray();
     if(data.length == 1){
         return {
-            props: {name: params.username, theme: testTheme, profile_url:  data[0].profile_url ? "/uploads/" + data[0].profile_url: null, found: true, listingData:data[0].links.filter((x: { enabled: boolean; })=>x.enabled)}, // will be passed to the page component as props
+            props: {name: params.username, theme: testTheme, profile_url:  data[0].profile_url ? "https://owo.sfo3.digitaloceanspaces.com/profile-images/" + data[0].profile_url: null, found: true, listingData:data[0].links.filter((x: { enabled: boolean; })=>x.enabled)}, // will be passed to the page component as props
           }
     }
     return {
