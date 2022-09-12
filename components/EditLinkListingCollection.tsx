@@ -1,12 +1,12 @@
 
-import {LinkListingInfo} from "./Interfaces";
+import {ListingInfo} from "./Interfaces";
 import EditLinkListing from "./EditLinkListing";
 import React, { ChangeEvent, FormEvent, FormEventHandler } from "react";
 import { assert } from "console";
 
-export default class EditLinkListingCollection extends React.Component<{links: Array<LinkListingInfo>}, {links: Array<LinkListingInfo>}> {
+export default class EditLinkListingCollection extends React.Component<{links: Array<ListingInfo>}, {links: Array<ListingInfo>}> {
 
-    constructor(props : {links: Array<LinkListingInfo>}) {
+    constructor(props : {links: Array<ListingInfo>}) {
         super(props);
         this.state = props;
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -69,7 +69,7 @@ export default class EditLinkListingCollection extends React.Component<{links: A
 
 
     render() {
-        let listings = this.state.links.map((linkListing : LinkListingInfo, index:number )=> <div key={index}>{EditLinkListing(linkListing, this.handleChangeI(index), ()=>{this.deleteI(index)})} </div>)
+        let listings = this.state.links.map((linkListing : ListingInfo, index:number )=> <div key={index}>{EditLinkListing(linkListing, this.handleChangeI(index), ()=>{this.deleteI(index)})} </div>)
         return (
             <div className="LinkCollection">
                 <form onSubmit={this.handleSubmit}>
