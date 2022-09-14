@@ -38,6 +38,7 @@ const linkpage = (pInfo : PageInfo) => {
         <style global jsx>{`
             body {
                 background-color: ${pInfo.theme.bgColor};
+                color: ${pInfo.theme.textColor};
             }
 
             h2 {
@@ -83,12 +84,14 @@ export async function getServerSideProps({params} : any) {
     //b9c4fc
     //Temp Hardcoded themes
     let blueTheme : Theme = {textColor: '#FFFFFF', bgColor: '#dce4fa', linkBgColor: '#b9c4fc', hoverColor: '#b9c4fc'};
+    let purpleTheme : Theme = {textColor: '#FFFFFF', bgColor: '#e7e5fb', linkBgColor: '#cfbff8', hoverColor: '#cfbff8'};
     let pinkTheme: Theme = {textColor: '#FFFFFF', bgColor: '#fadcdc', linkBgColor: '#f9bab3', hoverColor: '#f9bab3'};
+    
 
     const data = await db.collection("userdata").find({name: params.username}).toArray();
     if(data.length == 1){
         return {
-            props: {name: params.username, theme: pinkTheme, profile_url:  data[0].profile_url ? "https://owo.sfo3.digitaloceanspaces.com/profile-images/" + data[0].profile_url: null, found: true, listingData:data[0].links.filter((x: { enabled: boolean; })=>x.enabled)}, // will be passed to the page component as props
+            props: {name: params.username, theme: purpleTheme, profile_url:  data[0].profile_url ? "https://owo.sfo3.digitaloceanspaces.com/profile-images/" + data[0].profile_url: null, found: true, listingData:data[0].links.filter((x: { enabled: boolean; })=>x.enabled)}, // will be passed to the page component as props
           }
     }
     return {

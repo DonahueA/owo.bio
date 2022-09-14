@@ -19,6 +19,7 @@ const linkpage = (pInfo : PageInfo) => {
     return <>        <style global jsx>{`
         body {
             background-color: ${pInfo.theme.bgColor};
+            color: ${pInfo.theme.textColor}
         }
         
         h2 {
