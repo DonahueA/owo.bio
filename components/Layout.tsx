@@ -5,23 +5,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <title>owo</title>
         </header>
         <style jsx global>{`
-          *,
-          *::before,
-          *::after {
-            box-sizing: border-box;
-          }
+
           body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-              "Helvetica Neue", Arial, Noto Sans, sans-serif, "Apple Color Emoji",
-              "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            text-align:center;
+            color: white;
+            background-color: #FADCDC;
+            font-family: Inter;
           }
           .container {
+            text-align:center;
             max-width: 36%;
             margin: 1.5rem auto;
             padding-left: 1rem;
             padding-right: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              "Helvetica Neue", Arial, Noto Sans, sans-serif, "Apple Color Emoji",
+              "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
           }
           @media (max-width: 768px){
             .container{

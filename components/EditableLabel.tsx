@@ -4,7 +4,6 @@ export default function EditableLabel (name: string, label: string, onChange: Ch
 
     return (<input
     className="EditableLabel"
-    style={{ color: "inherit",  fontSize: "1.2em"}}
     type="text"
     name={name}
     value={label}

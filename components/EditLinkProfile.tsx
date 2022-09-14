@@ -1,6 +1,4 @@
-import { METHODS } from "http";
-import Image from "next/image"
-import React, { ChangeEventHandler } from "react"
+import React from "react"
 
 
 export default class PhotoSelect extends React.Component<{name: string, profile_url?: string}, {profile_url: string}>{
@@ -52,6 +50,9 @@ export default class PhotoSelect extends React.Component<{name: string, profile_
             display: "inline"
         }
 
-        return <div><input style={fileInputStyle} type="file" accept="image/*" onChange={this.gotNewImage} /><img style={{objectFit: "cover", borderRadius: "100px"}} width={100} height={100} src={this.state.profile_url}></img><h2>{this.props.name}</h2></div>
+        return <div><input style={fileInputStyle} type="file" accept="image/*" onChange={this.gotNewImage} />
+        <img style={{objectFit: "cover", borderRadius: "100px", margin: "auto"}} width={100} height={100} src={this.state.profile_url}></img>
+
+        <h2 className="text-2xl mt-2 mb-8 font-semibold">{this.props.name}</h2></div>
     } 
 }

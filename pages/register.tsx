@@ -37,14 +37,16 @@ function App() {
 
   };
 
+
+
   return (
     <Layout>
-      <h2 style={{marginTop: "200px"}}>register owo</h2>
-    <form style={{backgroundColor: "inherit", maxWidth: "460px"}} onSubmit={handleSubmit(onSubmit)}>
-      <input placeholder="email" {...register("email", {pattern: /\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}/ , required: true })} />
+      <h2 className="mt-48 text-2xl font-bold mb-5 text-white">register owo</h2>
+    <form style={{backgroundColor: "inherit", color:"black", maxWidth: "460px", margin: "auto"}} onSubmit={handleSubmit(onSubmit)}>
+      <input className="block w-full rounded py-2.5 px-3.5 mb-2.5 outline-0 text-sm"  placeholder="email" {...register("email", {pattern: /\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}/ , required: true })} />
       {errors.email?.type =="pattern" && <div className="registerError">Invalid email</div>}
       {errors.email?.type === "custom" && <div className="registerError">{errors.email?.message}</div>}
-      <input placeholder="password" type={"password"} {...register("password", { required: true , minLength: 8})} />
+      <input className="block w-full rounded py-2.5 px-3.5 mb-2.5 outline-0 text-sm	" placeholder="password" type={"password"} {...register("password", { required: true , minLength: 8})} />
 
       {errors.password && <div className="registerError">Invalid password</div>}
       
@@ -55,7 +57,7 @@ function App() {
       {errors.username?.type == "pattern" && <div className="registerError">Invalid username</div>}
       {errors.username?.type === "custom" && <div className="registerError">{errors.username?.message}</div>}
             
-      <input style={{backgroundColor: "white"}} type="submit" className="submit" value="Sign Up"/>
+      <input className="w-40 bg-white py-2.5 px-3.5 text-sm	mt-5 rounded text-black" type="submit"  value="Sign Up"/>
     </form>
     </Layout>
   );
