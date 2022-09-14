@@ -1,8 +1,7 @@
 
 import {ListingInfo} from "./Interfaces";
 import EditLinkListing from "./EditLinkListing";
-import React, { ChangeEvent, FormEvent, FormEventHandler } from "react";
-import { assert } from "console";
+import React, { ChangeEvent, FormEvent } from "react";
 
 export default class EditLinkListingCollection extends React.Component<{links: Array<ListingInfo>}, {links: Array<ListingInfo>}> {
 

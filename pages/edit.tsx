@@ -3,7 +3,7 @@ import {ListingInfo} from "../components/Interfaces";
 import PhotoSelect from "../components/EditLinkProfile";
 import Layout from "../components/Layout";
 import EditLinkListingCollection from '../components/EditLinkListingCollection';
-import LinkProfile from '../components/LinkProfile';
+
 import { withIronSessionSsr } from "iron-session/next";
 
 import { sessionOptions } from "../lib/session";

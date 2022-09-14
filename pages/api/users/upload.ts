@@ -2,7 +2,6 @@ import { withIronSessionApiRoute } from "iron-session/next";
 import { sessionOptions } from "../../../lib/session";
 import { connectToDatabase } from "../../../util/mongodb";
 
-import {createWriteStream, writeFile} from 'node:fs';
 import { PassThrough } from "node:stream";
 
 import { uploadStream } from "../../../util/spaces";
@@ -18,7 +17,6 @@ function streamTransform(file: { newFilename: string; }){
 
     const firstStream = new PassThrough();
     const lastStream = uploadStream(file);
-    //const lastStream = createWriteStream("./public/uploads/" + file.newFilename);
     var transformer = sharp().resize({width: 100, height: 100}).jpeg({quality: 100});
     firstStream.pipe(transformer).pipe(lastStream);
     return firstStream;
