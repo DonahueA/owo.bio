@@ -8,7 +8,14 @@ export interface ListingInfo{
 export interface Theme{
     textColor: string;
     bgColor: string;
-    LinkbgColor: string;
+    linkBgColor: string;
     hoverColor?: string;
     borderColor?: string;
+}
+
+export interface PageInfo {
+    name: string;
+    profile_url?: string;
+    listingData?: [ListingInfo]
+    theme: Theme
 }

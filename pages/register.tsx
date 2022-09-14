@@ -41,6 +41,11 @@ function App() {
 
   return (
     <Layout>
+      <style global jsx>{`body {
+            color: white;
+            background-color: #FADCDC;
+            font-family: Inter;
+          }`}</style>
       <h2 className="mt-48 text-2xl font-bold mb-5 text-white">register owo</h2>
     <form style={{backgroundColor: "inherit", color:"black", maxWidth: "460px", margin: "auto"}} onSubmit={handleSubmit(onSubmit)}>
       <input className="block w-full rounded py-2.5 px-3.5 mb-2.5 outline-0 text-sm"  placeholder="email" {...register("email", {pattern: /\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}/ , required: true })} />

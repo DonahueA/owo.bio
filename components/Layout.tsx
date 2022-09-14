@@ -5,12 +5,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <title>owo</title>
         </header>
         <style jsx global>{`
-
-          body {
-            color: white;
-            background-color: #FADCDC;
-            font-family: Inter;
-          }
           .container {
             text-align:center;
             max-width: 36%;

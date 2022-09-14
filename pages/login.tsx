@@ -38,6 +38,11 @@ function Login() {
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <Layout>
+      <style global jsx>{`body {
+            color: white;
+            background-color: #FADCDC;
+            font-family: Inter;
+          }`}</style>
       <h2 className="mt-48 mb-5 text-2xl font-bold">welcome back owo</h2>
     <form style={{ maxWidth: "460px", color: "black", margin: "auto"}}onSubmit={handleSubmit(onSubmit)}>
       <input className="block w-full rounded py-2.5 px-3.5 mb-2.5 outline-0 text-sm"  placeholder="username" {...register("username")} />

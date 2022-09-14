@@ -36,7 +36,10 @@ const linkpage = (pInfo : PageInfo) => {
 
         return <><title>{pInfo.name}</title>
         <style global jsx>{`
-            
+            body {
+                background-color: ${pInfo.theme.bgColor};
+            }
+
             h2 {
                 margin-top: 8px;
                 margin-bottom: 30px;
@@ -54,12 +57,10 @@ const linkpage = (pInfo : PageInfo) => {
 
             .LinkContainer{
                 transition: all .2s ease-in-out; 
-                background-color: ${pInfo.theme.LinkbgColor};
+                background-color: ${pInfo.theme.linkBgColor};
                 border: ${'borderColor' in pInfo.theme ?  '3px ' + pInfo.theme.borderColor + ' solid' : '0' } ;
             }
-            html, body {
-                background-color: ${pInfo.theme.bgColor};
-            }
+            
         `}</style>
         <Layout>    
         {LinkProfile(pInfo.name, pInfo.profile_url)}
@@ -78,17 +79,16 @@ export async function getServerSideProps({params} : any) {
     // Connection URI
     const { db } = await connectToDatabase();
 
-    let testTheme: Theme = {
-        textColor: '#FFFFFF',
-        bgColor: '#FADCDC',
-        LinkbgColor: '#f9bab3',
-        hoverColor: '#f9bab3'
-    }
+    //dce4fa
+    //b9c4fc
+    //Temp Hardcoded themes
+    let blueTheme : Theme = {textColor: '#FFFFFF', bgColor: '#dce4fa', linkBgColor: '#b9c4fc', hoverColor: '#b9c4fc'};
+    let pinkTheme: Theme = {textColor: '#FFFFFF', bgColor: '#fadcdc', linkBgColor: '#f9bab3', hoverColor: '#f9bab3'};
 
     const data = await db.collection("userdata").find({name: params.username}).toArray();
     if(data.length == 1){
         return {
-            props: {name: params.username, theme: testTheme, profile_url:  data[0].profile_url ? "https://owo.sfo3.digitaloceanspaces.com/profile-images/" + data[0].profile_url: null, found: true, listingData:data[0].links.filter((x: { enabled: boolean; })=>x.enabled)}, // will be passed to the page component as props
+            props: {name: params.username, theme: pinkTheme, profile_url:  data[0].profile_url ? "https://owo.sfo3.digitaloceanspaces.com/profile-images/" + data[0].profile_url: null, found: true, listingData:data[0].links.filter((x: { enabled: boolean; })=>x.enabled)}, // will be passed to the page component as props
           }
     }
     return {
