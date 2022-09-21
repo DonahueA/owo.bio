@@ -1,5 +1,5 @@
 import React from "react"
-
+import Image from 'next/image'
 
 export default class PhotoSelect extends React.Component<{name: string, profile_url?: string}, {profile_url: string}>{
 
@@ -47,12 +47,19 @@ export default class PhotoSelect extends React.Component<{name: string, profile_
             position: 'absolute' as 'absolute',
             width: 100,
             height: 100,
-            display: "inline"
+            display: "block",
+            cursor:"pointer"
         }
 
-        return <div><input style={fileInputStyle} type="file" accept="image/*" onChange={this.gotNewImage} />
-        <img style={{objectFit: "cover", borderRadius: "100px", margin: "auto"}} width={100} height={100} src={this.state.profile_url}></img>
-
+        return <div>
+            <div className="relative" style={{width: "100px", height: "100px", margin: "auto"}}>
+                <input style={fileInputStyle} type="file" accept="image/*" onChange={this.gotNewImage} />
+                <img style={{objectFit: "cover", borderRadius: "100px", margin: "auto"}} width={100} height={100} src={this.state.profile_url}/>
+                <div className="absolute bg-gray-200" style={{top: "76px", left: "76px", width: "20px", height:"20px", borderRadius:"10px", display:"flex" }}>
+                <img  className="m-auto opacity-70" src="/photo-plus.svg"  width={16} height={16} />
+                </div>
+                
+            </div>
         <h2 className="text-2xl mt-2 mb-8 font-semibold">{this.props.name}</h2></div>
     } 
 }
