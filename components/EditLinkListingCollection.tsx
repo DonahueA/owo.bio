@@ -1,9 +1,9 @@
 
-import {ListingInfo} from "./Interfaces";
+import {ListingInfo, Theme} from "./Interfaces";
 import EditLinkListing from "./EditLinkListing";
 import React, { ChangeEvent, FormEvent } from "react";
-
-export default class EditLinkListingCollection extends React.Component<{links: Array<ListingInfo>}, {links: Array<ListingInfo>}> {
+import Preview from "./Preview";
+export default class EditLinkListingCollection extends React.Component<{links?: Array<ListingInfo>}, {links: Array<ListingInfo>}> {
 
     constructor(props : {links: Array<ListingInfo>}) {
         super(props);
@@ -68,9 +68,11 @@ export default class EditLinkListingCollection extends React.Component<{links: A
 
 
     render() {
+        let pinkTheme : Theme = {textColor: '#FFFFFF', bgColor: '#fadcdc', linkBgColor: '#f9bab3', hoverColor: '#f9bab3'};
+        
         let listings = this.state.links.map((linkListing : ListingInfo, index:number )=> <div key={index}>{EditLinkListing(linkListing, this.handleChangeI(index), ()=>{this.deleteI(index)})} </div>)
         return (
-            <div className="LinkCollection">
+            <div className="flex flex-row"><div className="w-3/5 md:background-red-900">
                 <form onSubmit={this.handleSubmit}>
                 {listings}
 
@@ -79,6 +81,10 @@ export default class EditLinkListingCollection extends React.Component<{links: A
                 <button className="EditLinkCollectionButton" type="submit" value="Save">save changes</button>
                 </div>
                 </form>
+            </div>
+            <div className="m-auto">
+            <Preview name={"xonas"} theme={pinkTheme} listingData={this.state.links}/>
+            </div>
             </div>
             );
     }

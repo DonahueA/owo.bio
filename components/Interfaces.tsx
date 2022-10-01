@@ -11,11 +11,24 @@ export interface Theme{
     linkBgColor: string;
     hoverColor?: string;
     borderColor?: string;
+    //bio/username color
+    //Font
+    //Gradient
+    //
 }
 
 export interface PageInfo {
     name: string;
     profile_url?: string;
-    listingData?: [ListingInfo]
+    listingData?: Array<ListingInfo>
     theme: Theme
+}
+
+
+export interface UserTheme {
+    linkListingStyle: any;
+    linkContainerStyle: any;
+    profileBioStyle: any;
+    profileImageStyle: any;
+    backgroundStyle: any;
 }
