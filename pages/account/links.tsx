@@ -4,7 +4,7 @@ import EditLinkListingCollection from "../../components/EditLinkListingCollectio
 
 import Navbar from "../../components/EditNavBar";
 
-import { ListingInfo, PageInfo, Theme} from "../../components/Interfaces";
+import { ListingInfo, PageInfo, UserTheme} from "../../components/Interfaces";
 
 import { sessionOptions } from "../../lib/session";
 import { connectToDatabase } from "../../util/mongodb";
@@ -18,7 +18,7 @@ export default function links(pInfo: PageInfo) {
     return <div>
     <Navbar />
     <div>
-    <EditLinkListingCollection links={pInfo.listingData} />
+    <EditLinkListingCollection pInfo={pInfo} />
     </div>
 
     </div>;
@@ -44,12 +44,19 @@ export const getServerSideProps = withIronSessionSsr(async function getServerSid
 
     //Temp Hard coded
     
-    let pinkTheme : Theme = {textColor: '#FFFFFF', bgColor: '#fadcdc', linkBgColor: '#f9bab3', hoverColor: '#f9bab3'};
+    let pinkTheme : UserTheme = {
+        linkItemStyle: {backgroundColor: "white", color:"#2b3235", borderRadius: "50px"},
+        profileBioStyle: {color:"white"},
+        profileImageStyle: {},
+        backgroundStyle: {backgroundColor: "#fadcdc"}
+    };
+    
     if(data.length == 1){
         let results : PageInfo = {
             name: req.session.user.user as string,
             listingData: data[0].links as [ListingInfo],
-            theme: pinkTheme
+            theme: data[0].theme,
+            profile_url: data[0].profile_url ? "https://owo.sfo3.digitaloceanspaces.com/profile-images/" + data[0].profile_url :  "https://owo.sfo3.digitaloceanspaces.com/profile-images/default.webp",
         };
         results.listingData = data[0].links as [ListingInfo]
         return {
@@ -61,7 +68,7 @@ export const getServerSideProps = withIronSessionSsr(async function getServerSid
 
     let empty : PageInfo = {
         name: 'User not found',
-        theme: {textColor: '#FFFFFF', bgColor: '#dce4fa', linkBgColor: '#b9c4fc', hoverColor: '#b9c4fc'}
+        theme: pinkTheme
     };
     return {props: empty};
     
@@ -69,4 +76,3 @@ export const getServerSideProps = withIronSessionSsr(async function getServerSid
 
     },sessionOptions,
 )
-

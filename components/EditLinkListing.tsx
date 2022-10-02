@@ -13,7 +13,7 @@ export default function EditLinkListing(info: ListingInfo, handleChange : Change
         </div>
         <div className="EditLinkOptionsContainer">
             <input type="checkbox" className="switch_1" name="enabled" checked={info.enabled} onChange={handleChange} />
-            <Image  width={25} height={25} onClick={deleteSelf} src="/icons8-trash-25-white.png" />
+            <Image  width={25} height={25} onClick={deleteSelf} src="/icons8-trash-25-white-invert.png" />
         </div></div>
     );
 }

@@ -24,7 +24,7 @@ function Login() {
     fetch("/api/users/login", requestOptions)
         .then(res => {
             if(res.status == 200){
-              window.location.replace("/edit");
+              window.location.replace("/account/links");
             }else{
                 res.json().then((data) =>{
                     setError('username', { type: 'custom', message: data.error });
@@ -63,7 +63,7 @@ export const getServerSideProps = withIronSessionSsr(
 
     
     if (req.session.user) {
-      res.setHeader('location', '/edit')
+      res.setHeader('location', '/account/links')
       res.statusCode = 302
       res.end()
       return {props: {username: ""}}

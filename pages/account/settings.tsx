@@ -1,3 +1,5 @@
+import Navbar from "../../components/EditNavBar";
+
 export default function settings() {
-    return <div>Settings Page</div>;
+    return <div><Navbar /></div>;
 }

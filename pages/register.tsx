@@ -2,6 +2,8 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Layout from "../components/Layout";
 
+import { withIronSessionSsr } from "iron-session/next";
+import { sessionOptions } from "../lib/session";
 
 type Inputs = {
   username: string,
@@ -11,7 +13,6 @@ type Inputs = {
 
 function App() {
   const { register,setError, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
-
 
   const onSubmit: SubmitHandler<Inputs> = data => {
     const requestOptions : RequestInit= {
@@ -26,7 +27,7 @@ function App() {
         .then(res => {
             if(res.status == 200){
                 //Fix (should not have to wait)
-                setTimeout(()=>{window.location.replace("/edit")}, 100);
+                setTimeout(()=>{window.location.replace("/account/links")}, 100);
             }else{
                 res.json().then((data) =>{
                     setError(data.type, {type: 'custom', message: data.error});
@@ -67,5 +68,23 @@ function App() {
     </Layout>
   );
 }
+
+export const getServerSideProps = withIronSessionSsr(
+  async function getServerSideProps({ req, res }) : Promise<{props: {username:string}}> {
+
+
+    
+    if (req.session.user) {
+      res.setHeader('location', '/account/links')
+      res.statusCode = 302
+      res.end()
+      return {props: {username: ""}}
+    }
+    return {
+      props: {username: "",}
+    };
+  },
+  sessionOptions,
+);
 
 export default App

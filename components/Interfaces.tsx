@@ -21,13 +21,12 @@ export interface PageInfo {
     name: string;
     profile_url?: string;
     listingData?: Array<ListingInfo>
-    theme: Theme
+    theme: UserTheme
 }
 
 
 export interface UserTheme {
-    linkListingStyle: any;
-    linkContainerStyle: any;
+    linkItemStyle: any;
     profileBioStyle: any;
     profileImageStyle: any;
     backgroundStyle: any;

@@ -1,13 +1,13 @@
 
-import {ListingInfo, Theme} from "./Interfaces";
+import {ListingInfo, PageInfo, Theme} from "./Interfaces";
 import EditLinkListing from "./EditLinkListing";
 import React, { ChangeEvent, FormEvent } from "react";
 import Preview from "./Preview";
-export default class EditLinkListingCollection extends React.Component<{links?: Array<ListingInfo>}, {links: Array<ListingInfo>}> {
+export default class EditLinkListingCollection extends React.Component<{pInfo: PageInfo}, {links: Array<ListingInfo>}> {
 
-    constructor(props : {links: Array<ListingInfo>}) {
+    constructor(props : {pInfo: PageInfo}) {
         super(props);
-        this.state = props;
+        this.state = {links: props.pInfo.listingData ? props.pInfo.listingData : []};
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChangeI = this.handleChangeI.bind(this);
         this.addLink = this.addLink.bind(this);
@@ -72,18 +72,19 @@ export default class EditLinkListingCollection extends React.Component<{links?: 
         
         let listings = this.state.links.map((linkListing : ListingInfo, index:number )=> <div key={index}>{EditLinkListing(linkListing, this.handleChangeI(index), ()=>{this.deleteI(index)})} </div>)
         return (
-            <div className="flex flex-row"><div className="w-3/5 md:background-red-900">
+            <div className="flex flex-row"><div className="w-full pt-20 px-80 md:background-red-900">
+                <div className="text-3xl font-bold mb-8">Links</div>
                 <form onSubmit={this.handleSubmit}>
                 {listings}
 
-                <div className="EditLinkCollectionActions">
-                <button className="EditLinkCollectionButton" type="button" onClick={this.addLink}>add new link</button>
-                <button className="EditLinkCollectionButton" type="submit" value="Save">save changes</button>
+                <div style={{textAlign: "center"}}>
+                <button className="rounded-full bg-blue-500 text-white py-1 px-3 mr-4 hover:bg-blue-600" type="button" onClick={this.addLink}>Add New Link</button>
+                <button className="rounded-full bg-blue-500 text-white py-1 px-3 hover:bg-blue-600" type="submit" value="Save">Save Changes</button>
                 </div>
                 </form>
             </div>
-            <div className="m-auto">
-            <Preview name={"xonas"} theme={pinkTheme} listingData={this.state.links}/>
+            <div className="m-16">
+            <Preview profile_url={this.props.pInfo.profile_url} name={this.props.pInfo.name} theme={this.props.pInfo.theme} listingData={this.state.links}></Preview>
             </div>
             </div>
             );

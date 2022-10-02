@@ -6,7 +6,6 @@ let cachedClient : S3Client;
 
 
 export function uploadStream(file: any) {
-    console.log(file)
     const pass = new PassThrough();
     const client = new S3Client({
         endpoint: "https://sfo3.digitaloceanspaces.com",

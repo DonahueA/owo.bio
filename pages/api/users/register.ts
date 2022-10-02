@@ -16,7 +16,12 @@ export default withIronSessionApiRoute(async function register(req: NextApiReque
     if (req.method === 'POST') {
         const { password, ...user } = req.body;
 
-        
+        let blueTheme = {
+            linkItemStyle: {backgroundColor: "#c5d0eb", color:"white", borderWidth: "3px", borderColor: "white", borderRadius: "50px"},
+            profileBioStyle: {color:"white"},
+            profileImageStyle: {},
+            backgroundStyle: {backgroundColor: "#c5d0eb"}
+        };
         // Will have to get from DB
         const { db } = await connectToDatabase();
 
@@ -41,7 +46,12 @@ export default withIronSessionApiRoute(async function register(req: NextApiReque
             // hash and store to DB
 
             user.hash = bcrypt.hash(password, 10, (err: any, hash: any)=>{
-                db.collection("userdata").insertOne({name: user.username, email: user.email, hash: hash, links: [{label: "First link!", url:'google.com', enabled: false}]})
+                db.collection("userdata").insertOne({name: user.username, 
+                    email: user.email, 
+                    hash: hash, 
+                    links: [{label: "First link!", url:'google.com', enabled: false}],
+                    theme: blueTheme
+                })
             })    
 
             //Should login
