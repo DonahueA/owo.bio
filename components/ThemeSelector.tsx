@@ -140,23 +140,25 @@ export default class ThemeSelector extends React.Component<{pInfo: PageInfo}, {s
         })
         return <div>
             <div className="flex flex-row">
-            <div className="w-full text-left mx-48">
-            <div className="my-12">
-                <div className="text-3xl font-bold mb-8">Profile</div>
-            <PhotoSelect gotNewImage={this.gotNewImage} name={this.props.pInfo.name} profile_url={this.state.profile_url}/>
+            <div className="flex-1 text-left mx-4">
+                <div className="mx-auto mt-4">
+                <div className="mb-12">
+                    <div className="text-3xl font-bold mb-8">Profile</div>
+                <PhotoSelect gotNewImage={this.gotNewImage} name={this.props.pInfo.name} profile_url={this.state.profile_url}/>
+                </div>
+                <div className="text-3xl font-bold mb-8">Themes</div>
+                
+                <div className="flex flex-row flex-wrap gap-4" >
+                {listings}
+                </div>
+                <div className="text-center mt-8">
+                <button onClick={()=>this.setState({selected: 0})} className="rounded-full border-2 border-solid text-gray-400 py-1 px-3 font-normal mr-4">Cancel</button>
+                <button onClick={this.sendTheme} className="rounded-full bg-blue-500 text-white py-1 px-3 hover:bg-blue-600">Save Theme</button>
+                </div>
+                </div>
             </div>
-            <div className="text-3xl font-bold mb-8">Themes</div>
-            
-            <div className="flex flex-row flex-wrap gap-4" >
-            {listings}
-            </div>
-            <div className="text-center mt-8">
-            <button onClick={()=>this.setState({selected: 0})} className="rounded-full border-2 border-solid text-gray-400 py-1 px-3 font-normal mr-4">Cancel</button>
-            <button onClick={this.sendTheme} className="rounded-full bg-blue-500 text-white py-1 px-3 hover:bg-blue-600">Save Theme</button>
-            </div>
-            </div>
-            <div className="m-16">
-            <Preview profile_url={this.state.profile_url} name={this.props.pInfo.name} theme={this.themes[this.state.selected]} listingData={this.props.pInfo.listingData}></Preview>
+            <div className="hidden mt-16 mx-8   md:block">
+                <Preview profile_url={this.state.profile_url} name={this.props.pInfo.name} theme={this.themes[this.state.selected]} listingData={this.props.pInfo.listingData}></Preview>
             </div>
             
         </div>

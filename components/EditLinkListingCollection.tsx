@@ -72,18 +72,21 @@ export default class EditLinkListingCollection extends React.Component<{pInfo: P
         
         let listings = this.state.links.map((linkListing : ListingInfo, index:number )=> <div key={index}>{EditLinkListing(linkListing, this.handleChangeI(index), ()=>{this.deleteI(index)})} </div>)
         return (
-            <div className="flex flex-row"><div className="w-full pt-20 px-80 md:background-red-900">
-                <div className="text-3xl font-bold mb-8">Links</div>
-                <form onSubmit={this.handleSubmit}>
-                {listings}
+            <div className="flex flex-row">
+                <div className="flex-1">
+                    <div className="mx-2 md:mx-auto mt-4 lg:w-3/5">
+                        <div className="text-3xl font-bold mb-8">Links</div>
+                        <form onSubmit={this.handleSubmit}>
+                        {listings}
 
-                <div style={{textAlign: "center"}}>
-                <button className="rounded-full bg-blue-500 text-white py-1 px-3 mr-4 hover:bg-blue-600" type="button" onClick={this.addLink}>Add New Link</button>
-                <button className="rounded-full bg-blue-500 text-white py-1 px-3 hover:bg-blue-600" type="submit" value="Save">Save Changes</button>
+                        <div style={{textAlign: "center"}}>
+                        <button className="rounded-full bg-blue-500 text-white py-1 px-3 mr-4 hover:bg-blue-600" type="button" onClick={this.addLink}>Add New Link</button>
+                        <button className="rounded-full bg-blue-500 text-white py-1 px-3 hover:bg-blue-600" type="submit" value="Save">Save Changes</button>
+                        </div>
+                        </form>
+                    </div>
                 </div>
-                </form>
-            </div>
-            <div className="m-16">
+            <div className="hidden mt-16 mx-8   md:block">
             <Preview profile_url={this.props.pInfo.profile_url} name={this.props.pInfo.name} theme={this.props.pInfo.theme} listingData={this.state.links}></Preview>
             </div>
             </div>
