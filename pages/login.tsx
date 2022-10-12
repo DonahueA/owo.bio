@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { withIronSessionSsr } from "iron-session/next";
-import Layout from "../components/Layout";
 import { sessionOptions } from "../lib/session";
+import Layout from "../components/Layout";
+
 
 type Inputs = {
   username: string,
@@ -52,7 +53,9 @@ function Login() {
       
 
       <input className="w-40 bg-white py-2.5 px-3.5 text-sm	mt-5 rounded text-black" type="submit" value="login" />
+    <p className="text-white mt-2">Don't have an account? <u><a href="./register/">Sign up</a></u></p>
     </form>
+
     </Layout>
   );
 }
