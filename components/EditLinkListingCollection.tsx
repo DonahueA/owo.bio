@@ -80,8 +80,8 @@ export default class EditLinkListingCollection extends React.Component<{pInfo: P
                         {listings}
 
                         <div style={{textAlign: "center"}}>
-                        <button className="rounded-full bg-blue-500 text-white py-1 px-3 mr-4 hover:bg-blue-600" type="button" onClick={this.addLink}>Add New Link</button>
-                        <button className="rounded-full bg-blue-500 text-white py-1 px-3 hover:bg-blue-600" type="submit" value="Save">Save Changes</button>
+                        <button className="rounded-full bg-primary-pink text-white py-1 px-3 mr-4 hover:bg-focused-pink" type="button" onClick={this.addLink}>Add New Link</button>
+                        <button className="rounded-full bg-primary-pink text-white py-1 px-3 hover:bg-focused-pink" type="submit" value="Save">Save Changes</button>
                         </div>
                         </form>
                     </div>

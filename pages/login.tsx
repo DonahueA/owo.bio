@@ -38,25 +38,31 @@ function Login() {
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <Layout>
-      <style global jsx>{`body {
-            color: white;
-            background-color: #FADCDC;
-            font-family: Inter;
-          }`}</style>
-      <h2 className="mt-48 mb-5 text-2xl font-bold">welcome back owo</h2>
-    <form style={{ maxWidth: "460px", color: "black", margin: "auto"}}onSubmit={handleSubmit(onSubmit)}>
-      <input className="block w-full rounded py-2.5 px-3.5 mb-2.5 outline-0 text-sm"  placeholder="username" {...register("username")} />
-      <input className="block w-full rounded py-2.5 px-3.5 mb-2.5 outline-0 text-sm" placeholder="password" type={"password"}{...register("password", { required: true })} />
+    <>
+    <style jsx global>{`
+    @media (prefers-color-scheme: dark){
+      body {
+        background: #161111;
+      }
+    }
+  `}</style>
+    
+    <div>
+      
+      <h2 className="mt-48 text-5xl font-bold mb-16 mx-auto max-w-md text-primary-pink">Login</h2>
+    <form className="max-w-md mx-auto text-xl text-primary-pink" onSubmit={handleSubmit(onSubmit)}>
+      <input className="block w-full bg-inherit rounded-lg py-2.5 px-3.5 mb-2.5 outline-2 border-2 border-primary-pink focus:outline-cyan-600"  placeholder="username" {...register("username")} />
+      <input className="block w-full bg-inherit rounded-lg py-2.5 px-3.5 mb-2.5 outline-2 border-2 border-primary-pink focus:outline-cyan-600" placeholder="password" type={"password"}{...register("password", { required: true })} />
 
       {errors.username && <div className="registerError">{errors.username?.message}</div>}
       
-
-      <input className="w-40 bg-white py-2.5 px-3.5 text-sm	mt-5 rounded text-black" type="submit" value="login" />
+      <div className="ml-auto w-fit pt-2">
+      <input className="w-40 cursor-pointer text-white dark:bg-dark-primary-background ml-2 border-2 border-primary-pink bg-primary-pink py-2 px-4 rounded-lg hover:bg-focused-pink" type="submit" value="Login" />
+      </div>
     <p className="text-white mt-2">Don&apos;t have an account? <u><a href="./register/">Sign up</a></u></p>
     </form>
-
-    </Layout>
+    </div>
+    </>
   );
 }
 

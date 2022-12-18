@@ -15,13 +15,22 @@ import { connectToDatabase } from "../../util/mongodb";
 export default function links(pInfo: PageInfo) {
 
     
-    return <div>
+    return <><style jsx global>{`
+
+    @media (prefers-color-scheme: dark){
+      body {
+        background: #161111;
+        
+      }
+    }
+  `}</style><div>
     <Navbar />
     <div>
     <EditLinkListingCollection pInfo={pInfo} />
     </div>
+    </div>
+    </>;
 
-    </div>;
 }
 
 export const getServerSideProps = withIronSessionSsr(async function getServerSideProps({req, res}: any) : Promise<any> {

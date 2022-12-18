@@ -1,6 +1,6 @@
 import React from "react"
 
-export default class PhotoSelect extends React.Component<{name: string, gotNewImage:(e: React.ChangeEvent<HTMLInputElement>) => void, profile_url?: string}, {profile_url: string}>{
+export default class PhotoSelect extends React.Component<{name: string, gotNewImage:(e: React.ChangeEvent<HTMLInputElement>) => void, changeImage:(url: string) =>void, profile_url?: string}, {profile_url: string}>{
 
     constructor(props : any) {
         super(props);
@@ -36,8 +36,8 @@ export default class PhotoSelect extends React.Component<{name: string, gotNewIm
                 
             </div>
             <div className="flex flex-col justify-center ml-6 text-center">
-                <label htmlFor="myfile" className="rounded-full bg-blue-500 text-white py-1 px-24 mb-1 font-semibold hover:bg-blue-600">Choose Image</label>
-                <button className="rounded-full border-2 border-solid text-gray-400 py-1 px-24 font-normal">Delete</button>
+                <label htmlFor="myfile" className="rounded-full bg-primary-pink text-white py-1 px-24 mb-1 font-semibold hover:bg-hovered-pink">Choose Image</label>
+                <button className="rounded-full border-2 border-solid text-gray-400 py-1 px-24 font-normal" onClick={()=>{fetch("/api/users/upload", {method: 'DELETE'}); this.props.changeImage('https://owo.sfo3.digitaloceanspaces.com/profile-images/default.webp')}}>Delete</button>
             </div>
             </div>
     } 

@@ -27,11 +27,11 @@ const linkpage = (pInfo : PageInfo & {found: Boolean}) => {
         return <Layout><h2 style={{marginTop:"200px", marginBottom:"100px"}}>The page you were looking for doesn&apos;t exist.</h2><h2> <Link href="./register">Make this page yours.</Link></h2></Layout>
     }
 
-    
     return <><title>{pInfo.name}</title>
     <style global jsx>{`
         body{
             background-color: ${pInfo.theme.backgroundStyle.backgroundColor};
+            ${pInfo.theme.backgroundStyle.background ? 'background: ' + pInfo.theme.backgroundStyle.background : ''};
         }
         h2 {
             margin-top: 8px;

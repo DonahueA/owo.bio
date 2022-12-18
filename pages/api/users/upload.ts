@@ -26,7 +26,20 @@ function createFilename(){
     return uuidv4() + ".jpg"
 }
 export default withIronSessionApiRoute(
-  function logoutRoute(req, res) {
+  async function logoutRoute(req, res) {
+    if(req.method === 'DELETE'){
+      const {db} = await connectToDatabase();
+
+      const userinfo = db.collection('userdata');
+      const result = await userinfo.updateOne({name: req.session.user!.user},
+      {
+      $set: {
+          profile_url: 'https://owo.sfo3.digitaloceanspaces.com/profile-images/default.webp'
+      } 
+      })
+      res.send({ok: true})
+      return;
+    }
     if(req.method === 'POST'){
 
         

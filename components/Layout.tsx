@@ -11,9 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             margin: 1.5rem auto;
             padding-left: 1rem;
             padding-right: 1rem;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-              "Helvetica Neue", Arial, Noto Sans, sans-serif, "Apple Color Emoji",
-              "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-family: Inter, sans-serif;
           }
           @media (max-width: 768px){
             .container{
