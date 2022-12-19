@@ -159,13 +159,13 @@ export default class ThemeSelector extends React.Component<{pInfo: PageInfo}, {s
                 <div className="flex flex-row flex-wrap gap-4" >
                 {listings}
                 </div>
-                <div className="text-center mt-8">
+                <div className="text-center py-2  bottom-0 sticky bg-white">
                 <button onClick={()=>this.setState({selected: 0})} className="rounded-full border-2 border-solid text-gray-400 py-1 px-3 font-normal mr-4">Cancel</button>
                 <button onClick={this.sendTheme} className="rounded-full cursor-pointer bg-primary-pink text-white py-1 px-3 hover:bg-focused-pink">Save Theme</button>
                 </div>
                 </div>
             </div>
-            <div className="hidden mt-16 mx-8   md:block">
+            <div className="hidden mt-16 mx-8 md:block">
                 <Preview profile_url={this.state.profile_url} name={this.props.pInfo.name} theme={this.themes[this.state.selected]} listingData={this.props.pInfo.listingData}></Preview>
             </div>
             
