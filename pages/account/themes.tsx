@@ -16,14 +16,14 @@ import { connectToDatabase } from "../../util/mongodb";
 export default function themePage(pInfo: PageInfo) {
 
     
-    return <div>
+    return <><header><title>Themes | owo</title></header><div>
     <Navbar />
     <div>
     <ThemeSelector pInfo={pInfo} />
     
     </div>
 
-    </div>;
+    </div></>;
 }
 
 export const getServerSideProps = withIronSessionSsr(async function getServerSideProps({req, res}: any) : Promise<any> {

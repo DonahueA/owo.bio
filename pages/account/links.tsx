@@ -17,13 +17,9 @@ export default function links(pInfo: PageInfo) {
     
     return <><style jsx global>{`
 
-    @media (prefers-color-scheme: dark){
-      body {
-        background: #161111;
-        
-      }
-    }
-  `}</style><div>
+
+  `}</style><header><title>Links | owo</title></header>
+  <div>
     <Navbar />
     <div>
     <EditLinkListingCollection pInfo={pInfo} />
