@@ -5,7 +5,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <title>owo</title>
         </header>
         <style jsx global>{`
+          main {
+            height: 100%;
+          }
           .container {
+            height: 100%;
             text-align:center;
             max-width: 640px;
             margin: 1.5rem auto;

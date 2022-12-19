@@ -24,7 +24,13 @@ const linkpage = (pInfo : PageInfo & {found: Boolean}) => {
 
     
     if(pInfo.found == false){
-        return <Layout><h2 style={{marginTop:"200px", marginBottom:"100px"}}>The page you were looking for doesn&apos;t exist.</h2><h2> <Link href="./register">Make this page yours.</Link></h2></Layout>
+        return <><header><title>Not found | owo</title></header><Layout>
+                <div className='flex flex-col h-full justify-center'>
+                    <h2 className="text-primary-pink text-4xl font-bold" style={{ marginBottom:"100px"}}>The page you were looking for doesn&apos;t exist.</h2><h2>
+                    <Link  className="text-primary-pink hover:underline" href="./register">Make this page yours.</Link></h2>
+                </div>
+            </Layout>
+            </>
     }
 
     return <><title>{pInfo.name}</title>
