@@ -9,6 +9,10 @@ const Home: NextPage = () => {
 
   const [username, setUsername] = useState("");
   return (
+    <>
+    <header>
+    <title>owo.bio</title>
+  </header>
     <div className='grid grid-cols-[2fr_3fr] grid-rows-3 px-20 h-full py-14 dark:bg-dark-primary-background'>
       <h1 className="text-5xl font-bold text-primary-pink">owo.bio</h1>
       <div className="row-span-3 justify-self-center self-center	">
@@ -32,6 +36,7 @@ const Home: NextPage = () => {
       </div>
       
       </div>
+      </>
     )
 
 }
