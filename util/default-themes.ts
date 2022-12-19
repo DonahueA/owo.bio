@@ -7,6 +7,19 @@ export const blueTheme: UserTheme = {
     backgroundStyle: {backgroundColor: "#c5d0eb"}
 };
 
+const beigeTheme: UserTheme = {
+    linkItemStyle: {backgroundColor: "#ffeee2", color:"#000000", borderWidth: "2px", borderColor: "#ddcec4", borderRadius: "50px"},
+    profileBioStyle: {color:"#000000"},
+    profileImageStyle: undefined,
+    backgroundStyle: {backgroundColor: "#ffeee2"}
+};
+
+export const blackTheme2: UserTheme = {
+    linkItemStyle: {backgroundColor: "#222222", color:"white", borderRadius: "50px"},
+    profileBioStyle: {color:"white"},
+    profileImageStyle: undefined,
+    backgroundStyle: {backgroundColor: "#000000"}
+};
 export const pinkTheme: UserTheme = {
     linkItemStyle: {backgroundColor: "#fadcdc", color:"white", borderWidth: "3px", borderColor: "white", borderRadius: "50px"},
     profileBioStyle: {color:"white"},
@@ -95,14 +108,14 @@ export const  floral1: UserTheme = {
 
 export const  floralBlue: UserTheme = {
     linkItemStyle: {backgroundColor: "white", color:"#2b3235", borderRadius: "50px"},
-    profileBioStyle: {color:"white"},
+    profileBioStyle: {color:"#f7b719", backgroundColor: "hsla(0,0%,100%,0.3)"},
     profileImageStyle: undefined,
     backgroundStyle: {background: `url('https://owo.bio/backgrounds/floral-blue.png')`}
 };
 
 export const  flowersBlue: UserTheme = {
     linkItemStyle: {backgroundColor: "white", color:"#2b3235", borderRadius: "50px"},
-    profileBioStyle: {color:"white"},
+    profileBioStyle: {color:"white", mixBlendMode: "difference"},
     profileImageStyle: undefined,
     backgroundStyle: {background: `url('https://owo.bio/backgrounds/flowers-blue.png')`}
 };
@@ -131,7 +144,7 @@ export const  flowers2: UserTheme = {
 
 export const  flowersgreen: UserTheme = {
     linkItemStyle: {backgroundColor: "white", color:"#2b3235", borderRadius: "50px"},
-    profileBioStyle: {color:"white"},
+    profileBioStyle: {color:"#606c66"},
     profileImageStyle: undefined,
     backgroundStyle: {background: `url('https://owo.bio/backgrounds/green-flowers.png')`}
 };
@@ -158,5 +171,5 @@ export const  bunny: UserTheme = {
 };
 
 
-export const AllThemes: UserTheme[] = [blueTheme, pinkTheme, purpleTheme, blackTheme, defaultBlue, defaultPurple, defaultPink, bgGrey,
+export const AllThemes: UserTheme[] = [blueTheme, pinkTheme, purpleTheme, blackTheme, beigeTheme, defaultBlue , defaultPurple, defaultPink, blackTheme2, bgGrey,
      bgBlue, bgPurple, bgPink, bunny, crosses, floral1, floralBlue, flowersBlue, fallleaves, beans, flowersgreen, flowers2, geometric, frog];
